@@ -2,7 +2,7 @@ import React from "react";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 import { v4 as newUUID } from "uuid";
-import "./App.less";
+import "./App.css";
 
 interface TODO {
     id: string;
@@ -16,7 +16,8 @@ export class App extends React.Component {
 
     render() {
         return (
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className="app">
+                <h2 style={{ textDecoration: "underline" }}>TODO List</h2>
                 <div>
                     <input
                         value={this.currentTodoText}
@@ -28,9 +29,9 @@ export class App extends React.Component {
                     >
                         +
                     </button>
-                    <div className="todo-container">
+                    <div>
                         {this.todos.map((todo) => (
-                            <div style={{ display: "flex", padding: 5 }}>
+                            <div className="todo-item">
                                 <div style={{ flex: 1 }} key={todo.id}>
                                     {todo.text}
                                 </div>
